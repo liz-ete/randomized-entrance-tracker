@@ -1,23 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import useNavigation from './hooks/useNavigation';
+import Route from './Route';
+import Tracker from './Components/Tracker/Tracker';
 
 function App() {
+  const { navigate } = useNavigation();
+  const handleClick = () => {
+    navigate('/tracker');
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className="App">
+        <Route path="/">
+          <button onClick={handleClick}>Tracker</button>
+        </Route>
+        <Route path="/tracker">
+          <Tracker></Tracker>
+        </Route>
+      </div>
     </div>
   );
 }
