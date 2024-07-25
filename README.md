@@ -1,10 +1,8 @@
 # ALTTP Entrance Tracker
 
-This entrance tracker aims to be a web-based <copy of> tribute to Seph's Tracker (my favorite tracker).
+This entrance tracker aims to be a web-based ~~copy of~~ tribute to Seph's Tracker (my favorite tracker).
 
 This project uses React and HTML5 Canvas and it was made just for funsies.
-
-
 
 <!-- # Getting Started with Create React App
 
