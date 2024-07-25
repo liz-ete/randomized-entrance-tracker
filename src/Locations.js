@@ -2,584 +2,582 @@ export const lightWorldLocationsList = [
   {
     x: 10,
     y: 15,
-    status: true,
-    isDoor: false,
+    type: 'check',
   },
   {
     x: 89,
     y: 6,
-    status: true,
-    isDoor: true,
+    type: 'door',
   },
   {
     x: 164,
     y: 22,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 148,
     y: 30,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 285,
     y: 12,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 442,
     y: 24,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 248,
     y: 45,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 408,
     y: 38,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 433,
     y: 38,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 420,
     y: 53,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 449,
     y: 73,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 420,
     y: 68,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 405,
     y: 65,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 434,
     y: 73,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 464,
     y: 68,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 444,
     y: 105,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 198,
     y: 63,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 229,
     y: 63,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 247,
     y: 68,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 271,
     y: 76,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 228,
     y: 112,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 204,
     y: 89,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 88,
     y: 70,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 89,
     y: 160,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 233,
     y: 133,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 290,
     y: 135,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 341,
     y: 135,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 411,
     y: 168,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 15,
     y: 214,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 54,
     y: 210,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 69,
     y: 210,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 84,
     y: 210,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 17,
     y: 235,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 101,
     y: 243,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 43,
     y: 271,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 75,
     y: 271,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 99,
     y: 271,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 150,
     y: 269,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 157,
     y: 284,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 6,
     y: 304,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 49,
     y: 297,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 75,
     y: 301,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 74,
     y: 336,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 47,
     y: 367,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 63,
     y: 367,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 103,
     y: 358,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 30,
     y: 392,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 10,
     y: 406,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 30,
     y: 409,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 50,
     y: 406,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 96,
     y: 423,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 136,
     y: 458,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 154,
     y: 493,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 237,
     y: 481,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 237,
     y: 481,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 306,
     y: 399,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 278,
     y: 351,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 333,
     y: 483,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 333,
     y: 412,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 373,
     y: 393,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 406,
     y: 437,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 469,
     y: 394,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 462,
     y: 408,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 504,
     y: 357,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 423,
     y: 329,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 415,
     y: 228,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 494,
     y: 196,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 254,
     y: 224,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 229,
     y: 195,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 255,
     y: 202,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 282,
     y: 195,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 221,
     y: 7,
-    status: true,
-    isDoor: false,
+
+    type: 'check',
   },
   {
     x: 419,
     y: 1,
-    status: true,
-    isDoor: false,
+
+    type: 'check',
   },
   {
     x: 261,
     y: 33,
-    status: true,
-    isDoor: false,
+
+    type: 'check',
   },
   {
     x: 6,
     y: 357,
-    status: true,
-    isDoor: false,
+
+    type: 'check',
   },
   {
     x: 147,
     y: 339,
-    status: true,
-    isDoor: false,
+
+    type: 'check',
   },
   {
     x: 6,
     y: 470,
-    status: true,
-    isDoor: false,
+
+    type: 'check',
   },
   {
     x: 111,
     y: 476,
-    status: true,
-    isDoor: false,
+
+    type: 'check',
   },
   {
     x: 222,
     y: 479,
-    status: true,
-    isDoor: false,
+
+    type: 'check',
   },
   {
     x: 372,
     y: 425,
-    status: true,
-    isDoor: false,
+
+    type: 'check',
   },
   {
     x: 357,
     y: 355,
-    status: true,
-    isDoor: false,
+
+    type: 'check',
   },
   {
     x: 493,
     y: 75,
-    status: true,
-    isDoor: false,
+
+    type: 'check',
   },
   {
     x: 493,
     y: 60,
-    status: true,
-    isDoor: false,
+
+    type: 'check',
   },
   {
     x: 43,
     y: 235,
-    status: true,
-    isDoor: false,
+
+    type: 'check',
   },
   {
     x: 58,
     y: 37,
-    status: true,
-    isDoor: false,
+
+    type: 'check',
   },
   {
     x: 228,
     y: 97,
-    status: true,
-    isDoor: false,
+
+    type: 'check',
   },
   {
     x: 426,
     y: 168,
-    status: true,
-    isDoor: false,
+
+    type: 'check',
   },
   {
     x: 170,
     y: 459,
-    status: true,
-    isDoor: false,
+
+    type: 'check',
   },
   {
     x: 196,
     y: 145,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 306,
     y: 145,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 132,
     y: 421,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 454,
     y: 394,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 84,
     y: 396,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 238,
     y: 329,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 177,
     y: 87,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 180,
     y: 67,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 75,
     y: 287,
-    status: true,
-    isDoor: false,
+
+    type: 'check',
   },
 ];
 
@@ -587,307 +585,307 @@ export const darkWorldLocationsList = [
   {
     x: 14,
     y: 18,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 285,
     y: 12,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 439,
     y: 21,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 483,
     y: 35,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 409,
     y: 0,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 431,
     y: 40,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 407,
     y: 40,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 418,
     y: 54,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 445,
     y: 66,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 430,
     y: 66,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 457,
     y: 82,
-    status: true,
-    isDoor: false,
+
+    type: 'check',
   },
   {
     x: 292,
     y: 70,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 203,
     y: 89,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 167,
     y: 21,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 182,
     y: 68,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 178,
     y: 84,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 163,
     y: 70,
-    status: true,
-    isDoor: false,
+
+    type: 'check',
   },
   {
     x: 90,
     y: 159,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 233,
     y: 133,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 411,
     y: 166,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 19,
     y: 236,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 58,
     y: 242,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 101,
     y: 241,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 98,
     y: 267,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 166,
     y: 228,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 252,
     y: 203,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 217,
     y: 243,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 294,
     y: 222,
-    status: true,
-    isDoor: false,
+
+    type: 'check',
   },
   {
     x: 491,
     y: 197,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 434,
     y: 253,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 422,
     y: 326,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 502,
     y: 354,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 472,
     y: 392,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 465,
     y: 406,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 23,
     y: 353,
-    status: true,
-    isDoor: false,
+
+    type: 'check',
   },
   {
     x: 70,
     y: 336,
-    status: true,
-    isDoor: false,
+
+    type: 'check',
   },
   {
     x: 153,
     y: 347,
-    status: true,
-    isDoor: false,
+
+    type: 'check',
   },
   {
     x: 422,
     y: 23,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 458,
     y: 392,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 406,
     y: 439,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 329,
     y: 409,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 278,
     y: 347,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 303,
     y: 395,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 236,
     y: 478,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 97,
     y: 420,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 32,
     y: 424,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 105,
     y: 355,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 238,
     y: 329,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 50,
     y: 294,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 158,
     y: 307,
-    status: true,
-    isDoor: true,
+
+    type: 'door',
   },
   {
     x: 70,
     y: 62,
-    status: true,
-    isDoor: false,
+
+    type: 'check',
   },
 ];
