@@ -1,11 +1,5 @@
-import { useEffect, useMemo, useState } from 'react';
-import {
-  itemsImages,
-  locationsImages,
-  mapsImages,
-  others,
-} from '../../assets/images';
-import { createPortal } from 'react-dom';
+import { useEffect, useState } from 'react';
+import { images } from '../../assets/images';
 import ModalMenu from '../ModalMenu/ModalMenu';
 import {
   lightWorldLocationsList,
@@ -13,58 +7,30 @@ import {
 } from '../../Locations';
 import useCanvas from '../../hooks/useCanvas';
 import './Tracker.css';
+import useLoadImages from '../../hooks/useLoadImages';
+import { FadeLoader } from 'react-spinners';
+import UseNavigation from '../../hooks/useNavigation';
+import Portal from '../Portal';
 
 function Tracker() {
   const [showMenu, setShowMenu] = useState(false);
-  const [lightWorldLocations, setLightWorldLocations] = useState(
-    lightWorldLocationsList
+  const lightWorldLocalStorage = JSON.parse(
+    localStorage.getItem('lightWorldLocations')
   );
-  const [darkWorldLocations, setDarkWorldLocations] = useState(
-    darkWorldLocationsList
+  const darkWorldLocalStorage = JSON.parse(
+    localStorage.getItem('darkWorldLocations')
   );
+  const lightWorldData = lightWorldLocalStorage || lightWorldLocationsList;
+  const darkWorldData = darkWorldLocalStorage || darkWorldLocationsList;
+  const [lightWorldLocations, setLightWorldLocations] =
+    useState(lightWorldData);
+  const [darkWorldLocations, setDarkWorldLocations] = useState(darkWorldData);
   const [mouseCoordinates, setMouseCoordinates] = useState();
-  const [islightWorld, setIsLightWorld] = useState(false);
-  const [loading, setLoading] = useState(true);
-  const createImageList = () => {
-    const imageList = [];
-    const warp = new Image();
-    warp.src = others.warp;
-    imageList.push({ imageId: 'warp', image: warp, type: 'item' });
-    for (const [key] of Object.entries(itemsImages)) {
-      let newImage = new Image();
-      newImage.src = itemsImages[key];
-      imageList.push({ imageId: key, image: newImage, type: 'item' });
-    }
-    for (const [key] of Object.entries(locationsImages)) {
-      let newImage = new Image();
-      newImage.src = locationsImages[key];
-      imageList.push({ imageId: key, image: newImage, type: 'location' });
-    }
-    // const warp = new Image();
-    // imageList.push({ imageId: 'warp', image: warp, type: 'map' });
-    for (const [key] of Object.entries(mapsImages)) {
-      let newImage = new Image();
-      newImage.src = mapsImages[key];
-      imageList.push({ imageId: key, image: newImage, type: 'map' });
-    }
-    return imageList;
-  };
-  let imageArray = useMemo(createImageList, []);
+  const [islightWorld, setIsLightWorld] = useState(true);
 
-  const preloadImages = async () => {
-    await Promise.all(
-      imageArray.map((item) => {
-        return new Promise((resolve) =>
-          item.image.addEventListener('load', () => {
-            item.image.removeEventListener('load', () => {});
-            resolve();
-          })
-        );
-      })
-    ).then(() => {
-      setLoading(false);
-    });
-  };
+  const { transformedImages, loading, error } = useLoadImages();
+  const { closeWindow } = UseNavigation();
+
   const WIDTH = 13;
   const HEIGHT = 13;
   const OFFSET = 1;
@@ -76,41 +42,49 @@ function Tracker() {
   const canvasRef = useCanvas(draw);
 
   useEffect(() => {
-    preloadImages();
-  }, []);
+    if (loading || !ctx) return;
 
-  useEffect(() => {
-    let background;
-    let locations;
-    if (islightWorld) {
-      background = imageArray[imageArray.length - 2];
-      locations = lightWorldLocations;
-    } else {
-      background = imageArray[imageArray.length - 1];
-      locations = darkWorldLocations;
-    }
-    ctx.drawImage(background.image, 0, 0, ctx.canvas.width, ctx.canvas.height);
-    locations.forEach((loc) => {
-      const { x, y, imageId } = loc;
-
-      if (imageId) {
-        let imageToLoad = imageArray.find((img) => imageId === img.imageId);
-        const { image } = imageToLoad;
-        if (imageId === 'warp') {
-          // ctx.drawImage(
-          //   image,
-          //   ctx.canvas.width - image.naturalWidth,
-          //   ctx.canvas.height - image.naturalHeight,
-          //   image.naturalWidth,
-          //   image.naturalHeight
-          // );
-        } else {
-          ctx.drawImage(image, x, y, image.naturalWidth, image.naturalHeight);
+    const { background, locations } = islightWorld
+      ? {
+          background: transformedImages.lightWorld,
+          locations: lightWorldLocations,
         }
+      : {
+          background: transformedImages.darkWorld,
+          locations: darkWorldLocations,
+        };
+
+    if (islightWorld) {
+      localStorage.setItem(
+        'lightWorldLocations',
+        JSON.stringify(lightWorldLocations)
+      );
+    } else {
+      localStorage.setItem(
+        'darkWorldLocations',
+        JSON.stringify(darkWorldLocations)
+      );
+    }
+
+    const drawBackground = () => {
+      ctx.drawImage(
+        background.image,
+        0,
+        0,
+        ctx.canvas.width,
+        ctx.canvas.height
+      );
+    };
+
+    const drawLocation = (loc) => {
+      const { x, y, imageId, type } = loc;
+      if (imageId) {
+        const { image } = transformedImages[imageId];
+        ctx.drawImage(image, x, y, image.naturalWidth, image.naturalHeight);
       } else {
         ctx.fillStyle = '#000000';
         ctx.fillRect(x, y, WIDTH, HEIGHT);
-        ctx.fillStyle = loc.isDoor ? '#FFD900' : '#1AFF00';
+        ctx.fillStyle = type === 'door' ? '#FFD900' : '#1AFF00';
         ctx.fillRect(
           x + OFFSET,
           y + OFFSET,
@@ -118,47 +92,80 @@ function Tracker() {
           HEIGHT - OFFSET * 2
         );
       }
-    });
-    // };
-  }, [lightWorldLocations, darkWorldLocations, ctx, loading, islightWorld]);
+    };
+
+    drawBackground();
+    locations.forEach(drawLocation);
+  }, [
+    lightWorldLocations,
+    darkWorldLocations,
+    ctx,
+    islightWorld,
+    transformedImages,
+    loading,
+  ]);
 
   const handleContextClick = (e) => {
     e.preventDefault();
-    setShowMenu(!showMenu);
-    console.log(e.nativeEvent.clientX - 6, e.nativeEvent.clientY - 8);
-    setMouseCoordinates({
-      x: e.nativeEvent.clientX - 6,
-      y: e.nativeEvent.clientY - 8,
-    });
+
+    const offset = { x: 6, y: 8 };
+    const x = e.nativeEvent.clientX - offset.x;
+    const y = e.nativeEvent.clientY - offset.y;
+
+    setShowMenu((prevShowMenu) => !prevShowMenu);
+    setMouseCoordinates({ x, y });
+
+    console.log(`Mouse coordinates: (${x}, ${y})`);
   };
 
   const handleClick = (e) => {
-    // console.log(e.nativeEvent.clientX - 6, e.nativeEvent.clientY - 8);
+    const { clientX: x, clientY: y } = e.nativeEvent;
+    let filteredLocations = [];
+    const locationsToModify = islightWorld
+      ? [...lightWorldLocations]
+      : [...darkWorldLocations];
+    const itemToRemove = locationsToModify.findLastIndex((item) => {
+      const width = item.width || WIDTH;
+      const height = item.height || HEIGHT;
+      return (
+        item.x <= x &&
+        item.x + width >= x &&
+        item.y <= y &&
+        item.y + height >= y
+      );
+    });
+
+    if (itemToRemove === -1) return;
+
+    filteredLocations = locationsToModify.toSpliced(itemToRemove, 1);
+
+    if (islightWorld) {
+      setLightWorldLocations(filteredLocations);
+    } else {
+      setDarkWorldLocations(filteredLocations);
+    }
   };
 
   const handleModalClick = (item) => {
     const { x, y } = mouseCoordinates;
+
+    const elementToAdd = {
+      x,
+      y,
+      ...item,
+    };
+
+    const updateLocations = (prevLocations) => [...prevLocations, elementToAdd];
+
     setShowMenu(false);
-    let elementToAdd = {};
-    if (item.type !== 'item') {
-      elementToAdd = {
-        x,
-        y,
-        isDoor: item.type === 'door',
-      };
-    } else {
-      elementToAdd = {
-        x,
-        y,
-        imageId: item.imageId,
-      };
-    }
+
     if (islightWorld) {
-      setLightWorldLocations([...lightWorldLocations, elementToAdd]);
+      setLightWorldLocations(updateLocations);
     } else {
-      setDarkWorldLocations([...darkWorldLocations, elementToAdd]);
+      setDarkWorldLocations(updateLocations);
     }
   };
+
   const handleModalContextMenu = () => {
     setShowMenu(false);
   };
@@ -168,35 +175,47 @@ function Tracker() {
   };
 
   return (
-    <div>
+    <div className="container">
+      <FadeLoader
+        loading={loading}
+        color="gray"
+        cssOverride={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+        }}
+        aria-label="Loading Spinner"
+      />
+      {error && closeWindow()}
       <canvas
         ref={canvasRef}
-        width="519"
-        height="519"
+        width={519}
+        height={519}
         onContextMenu={handleContextClick}
         onClick={handleClick}
         id="tracker"
       />
-      {showMenu &&
-        createPortal(
+      {showMenu && (
+        <Portal>
           <ModalMenu
             onClick={handleModalClick}
             onContextMenu={handleModalContextMenu}
-          />,
-          document.body
-        )}
-      {createPortal(
+          />
+        </Portal>
+      )}
+      <Portal>
         <img
-          src={others.warp}
-          alt="warp"
+          src={images.others.warp}
+          alt="Warp"
           className="warp"
           onClick={handleWarpClick}
-        ></img>,
-        document.body
-      )}
+          onContextMenu={(e) => {
+            e.preventDefault();
+          }}
+        />
+      </Portal>
     </div>
-
-    // {showMenu && createPortal(<div>Hola mundo</div>, 'tracker')}
   );
 }
 
