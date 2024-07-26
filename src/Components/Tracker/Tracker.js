@@ -109,9 +109,10 @@ function Tracker() {
     e.preventDefault();
 
     const offset = { x: 6, y: 8 };
-    const x = e.nativeEvent.clientX - offset.x;
-    const y = e.nativeEvent.clientY - offset.y;
-
+    const relativeCanvasPosition = e.target.getBoundingClientRect();
+    const x = e.nativeEvent.clientX - relativeCanvasPosition.left - offset.x; //x position within the element.
+    const y = e.nativeEvent.clientY - relativeCanvasPosition.top - offset.y;  //y position within the element.
+    
     setShowMenu((prevShowMenu) => !prevShowMenu);
     setMouseCoordinates({ x, y });
 
@@ -120,6 +121,9 @@ function Tracker() {
 
   const handleClick = (e) => {
     const { clientX: x, clientY: y } = e.nativeEvent;
+    const relativeCanvasPosition = e.target.getBoundingClientRect();
+    const relativeX = x - relativeCanvasPosition.left; //x position within the element.
+    const relativeY = y - relativeCanvasPosition.top;  //y position within the element.
     let filteredLocations = [];
     const locationsToModify = islightWorld
       ? [...lightWorldLocations]
@@ -128,10 +132,10 @@ function Tracker() {
       const width = item.width || WIDTH;
       const height = item.height || HEIGHT;
       return (
-        item.x <= x &&
-        item.x + width >= x &&
-        item.y <= y &&
-        item.y + height >= y
+        item.x <= relativeX &&
+        item.x + width >= relativeX &&
+        item.y <= relativeY &&
+        item.y + height >= relativeY
       );
     });
 
