@@ -108,6 +108,7 @@ function Tracker() {
   const handleContextClick = (e) => {
     e.preventDefault();
 
+    
     const offset = { x: 6, y: 8 };
     const relativeCanvasPosition = e.target.getBoundingClientRect();
     const x = e.nativeEvent.clientX - relativeCanvasPosition.left - offset.x; //x position within the element.
