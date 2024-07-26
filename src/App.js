@@ -1,7 +1,7 @@
 import './App.css';
 import useNavigation from './hooks/useNavigation';
 import Route from './Route';
-import Tracker from './components/Tracker/Tracker';
+import Tracker from './Components/Tracker/Tracker';
 import { ImageProvider } from './contexts/ImageContext';
 
 function App() {
