@@ -1,16 +1,18 @@
-/* body {
+body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #1c1a16;
+  color: #c78c16;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-} */
+}
 
 /*
   1. Use a more-intuitive box-sizing model.
@@ -42,7 +44,6 @@ body {
 img,
 picture,
 video,
-canvas,
 svg {
   display: block;
   max-width: 100%;
