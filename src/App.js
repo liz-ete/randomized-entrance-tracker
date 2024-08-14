@@ -9,12 +9,6 @@ function App() {
   const handleClick = () => {
     navigate('/tracker');
   };
-  const deleteLocalStorage = () => {
-    if (window.confirm('Are you sure you want to delete your local storage?')) {
-      localStorage.removeItem('lightWorldLocations');
-      localStorage.removeItem('darkWorldLocations');
-    }
-  };
   return (
     <div>
       <div className="App">
@@ -27,11 +21,6 @@ function App() {
           </div>
           <button onClick={handleClick}>Open Tracker</button>
 
-          <p>
-            Seems like you have an old session runnin, do you want to delete the
-            old session? All your previous locations will be lost
-          </p>
-          <button onClick={deleteLocalStorage}>Delete</button>
         </Route>
         <Route path="/tracker">
           <ImageProvider>

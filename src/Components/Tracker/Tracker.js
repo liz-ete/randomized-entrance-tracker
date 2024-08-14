@@ -14,17 +14,13 @@ import Portal from '../Portal';
 
 function Tracker() {
   const [showMenu, setShowMenu] = useState(false);
-  const lightWorldLocalStorage = JSON.parse(
-    localStorage.getItem('lightWorldLocations')
+
+  const [lightWorldLocations, setLightWorldLocations] = useState(
+    lightWorldLocationsList
   );
-  const darkWorldLocalStorage = JSON.parse(
-    localStorage.getItem('darkWorldLocations')
+  const [darkWorldLocations, setDarkWorldLocations] = useState(
+    darkWorldLocationsList
   );
-  const lightWorldData = lightWorldLocalStorage || lightWorldLocationsList;
-  const darkWorldData = darkWorldLocalStorage || darkWorldLocationsList;
-  const [lightWorldLocations, setLightWorldLocations] =
-    useState(lightWorldData);
-  const [darkWorldLocations, setDarkWorldLocations] = useState(darkWorldData);
   const [mouseCoordinates, setMouseCoordinates] = useState();
   const [islightWorld, setIsLightWorld] = useState(true);
 
@@ -53,18 +49,6 @@ function Tracker() {
           background: transformedImages.darkWorld,
           locations: darkWorldLocations,
         };
-
-    if (islightWorld) {
-      localStorage.setItem(
-        'lightWorldLocations',
-        JSON.stringify(lightWorldLocations)
-      );
-    } else {
-      localStorage.setItem(
-        'darkWorldLocations',
-        JSON.stringify(darkWorldLocations)
-      );
-    }
 
     const drawBackground = () => {
       ctx.drawImage(
