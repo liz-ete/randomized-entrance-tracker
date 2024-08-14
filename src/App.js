@@ -11,23 +11,39 @@ function App() {
   };
   return (
     <div>
-      <div className="App">
-        <Route path="/">
+      <Route path="/">
+        <div className="app">
           <div>
-            <p>NOTE: This tracker uses a pop up window.</p>
+            <h1>
+              Entrance Tracker for{' '}
+              <a href="https://alttpr.com" target="_blank" rel="noreferrer">
+                ALTTPR
+              </a>
+            </h1>
+
             <p>
-              Please make sure your browser is not blocking it from opening.
+              This tracker uses a pop up window. Please make sure your browser
+              is not blocking it from opening.
             </p>
+            <h3>How to use</h3>
+            <ul>
+              <li>Right Click: Removes a location from the map.</li>
+              <li>Left Click: Opens the menu with the available markers.</li>
+              <li>
+                Clicking on the Portal icon (bottom right icon) switches maps
+                between Light and Dark Worlds.
+              </li>
+            </ul>
           </div>
           <button onClick={handleClick}>Open Tracker</button>
+        </div>
+      </Route>
 
-        </Route>
-        <Route path="/tracker">
-          <ImageProvider>
-            <Tracker></Tracker>
-          </ImageProvider>
-        </Route>
-      </div>
+      <Route path="/tracker">
+        <ImageProvider>
+          <Tracker></Tracker>
+        </ImageProvider>
+      </Route>
     </div>
   );
 }
