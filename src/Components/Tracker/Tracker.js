@@ -90,19 +90,6 @@ function Tracker() {
   ]);
 
   const handleContextClick = (e) => {
-    e.preventDefault();
-
-    const offset = { x: 6, y: 8 };
-    const x = e.nativeEvent.clientX - offset.x;
-    const y = e.nativeEvent.clientY - offset.y;
-
-    setShowMenu((prevShowMenu) => !prevShowMenu);
-    setMouseCoordinates({ x, y });
-
-    console.log(`Mouse coordinates: (${x}, ${y})`);
-  };
-
-  const handleClick = (e) => {
     const { clientX: x, clientY: y } = e.nativeEvent;
     let filteredLocations = [];
     const locationsToModify = islightWorld
@@ -130,6 +117,17 @@ function Tracker() {
     }
   };
 
+  const handleClick = (e) => {
+    e.preventDefault();
+
+    const offset = { x: 6, y: 8 };
+    const x = e.nativeEvent.clientX - offset.x;
+    const y = e.nativeEvent.clientY - offset.y;
+
+    setShowMenu((s) => !s);
+    setMouseCoordinates({ x, y });
+  };
+
   const handleModalClick = (item) => {
     const { x, y } = mouseCoordinates;
 
@@ -139,7 +137,7 @@ function Tracker() {
       ...item,
     };
 
-    const updateLocations = (prevLocations) => [...prevLocations, elementToAdd];
+    const updateLocations = (l) => [...l, elementToAdd];
 
     setShowMenu(false);
 
@@ -155,7 +153,7 @@ function Tracker() {
   };
 
   const handleWarpClick = () => {
-    setIsLightWorld(!islightWorld);
+    setIsLightWorld((w) => !w);
   };
 
   return (
