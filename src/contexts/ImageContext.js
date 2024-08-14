@@ -2,6 +2,8 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import { images } from '../assets/images';
 const ImageContext = createContext();
 
+// NOTE: Load images in advance to improve canvas performance and
+// provide a seamless user experience.
 function loadImage(src) {
   return new Promise((resolve, reject) => {
     const image = new Image();
@@ -23,7 +25,7 @@ async function transformImages(obj, parentKey = null, result = {}) {
         const image = await loadImage(value);
         result[key] = { type: parentKey, image };
       } catch (error) {
-        console.error(`Error loading image for key "${key}":`, error);
+        console.error(`Error loading image "${key}":`, error);
         result[key] = { type: parentKey, error: error.message };
       }
     } else {
