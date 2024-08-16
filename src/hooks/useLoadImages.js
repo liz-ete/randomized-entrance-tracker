@@ -1,4 +1,4 @@
-import { useImageContext } from '../contexts/ImageContext';
+import { useImageContext } from '../contexts/imageContext';
 
 const useLoadImages = () => {
   const context = useImageContext();

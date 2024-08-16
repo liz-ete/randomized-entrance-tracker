@@ -1,0 +1,12 @@
+.warp {
+  position: absolute;
+  width: 32px;
+  top: 487px;
+  left: 487px;
+}
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

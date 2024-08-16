@@ -2,7 +2,7 @@ import './App.css';
 import useNavigation from './hooks/useNavigation';
 import Route from './Route';
 import Tracker from './components/Tracker/Tracker';
-import { ImageProvider } from './contexts/ImageContext';
+import { ImageProvider } from './contexts/imageContext';
 
 function App() {
   const { navigate } = useNavigation();
